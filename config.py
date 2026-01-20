@@ -21,3 +21,7 @@ TRANSMISSION_GEAR_BYTE = 0
 RPM_SHIFT_LOW = 2000
 RPM_SHIFT_HIGH = 4000
 RPM_REDLINE = 4500
+
+# --- Security & IDS ---
+CAN_ID_ALERT = 0x666
+MAX_RPM_JUMP = 1000  # Max physically possible RPM change in 0.1s

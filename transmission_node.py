@@ -1,7 +1,19 @@
+"""
+Transmission Control Unit (TCU)
+-------------------------------
+Listens to Engine RPM specific CAN messages and determines the appropriate gear.
+Broadcasts the Gear state back to the bus.
+"""
 import can
 import config
 
 def transmission_logic():
+    """
+    Main loop:
+    1. Listens for Engine RPM (0x123).
+    2. Applies shift logic (Low/High thresholds).
+    3. Sends Gear (0x125).
+    """
     bus = can.Bus(**config.BUS_CONFIG)
     print(f"TCU Started. Listening to {hex(config.CAN_ID_ENGINE)}, Sending to {hex(config.CAN_ID_TRANSMISSION)}")
     

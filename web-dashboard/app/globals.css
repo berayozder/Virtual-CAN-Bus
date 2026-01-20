@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #ededed;
+  --accent: #357f84;
+  /* Cyberpunk/Tesla Cyan */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  /* Prevent scrolling for dashboard feel */
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.neon-text {
+  text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
+}
+
+.gauge-arc {
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+/* Custom Animations */
+@keyframes flash-red {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.animate-flash-red {
+  animation: flash-red 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
